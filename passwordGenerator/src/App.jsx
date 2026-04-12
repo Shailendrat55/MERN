@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import './index.css'
 
 function App() {
@@ -21,6 +21,14 @@ function App() {
      
   } , [length,numberAllowed,charAllowed, setPassword])
 
+  const passwordRef = useRef(null)
+
+  const copyPasswordToClipboard = useCallback(()=>{
+    passwordRef.current?.select();
+    passwordRef.current?.setSelectionRange(0,999);
+    window.navigator.clipboard.writeText(password)
+  },[password])
+
   useEffect(()=>{
     passwordGenerator()
   },[length,numberAllowed,charAllowed,passwordGenerator])
@@ -36,8 +44,9 @@ function App() {
           className='outline-none w-full py-1 px-3 bg-white'
           placeholder='password'
           readOnly
+          ref={passwordRef}
           />
-          <button className='outline-none bg-blue-600 text-white px-3 py-0.5 shrink-0'>Copy</button>
+          <button onClick={copyPasswordToClipboard} className='outline-none bg-blue-600 text-white px-3 py-0.5 shrink-0'>Copy</button>
         </div>
        <div className='flex'>
         <div className='gap-x-2'>
