@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@layer base{
+  body{
+    @apply bg-emerald-50 text-gray-900;
+  }
+}
+
+@layer components{
+  .btn{
+    @apply px-4 py-2 rounded font-medium transition;
+  }
+
+  .btn-primary{
+    @apply bg-emerald-300 hover:bg-green-500
+  }
+
+  .color-primary{
+    @apply bg-emerald-100 hover:bg-emerald-200
+  }
+}
