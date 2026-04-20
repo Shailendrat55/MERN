@@ -16,6 +16,6 @@
   }
 
   .color-primary{
-    @apply bg-emerald-100 hover:bg-emerald-200
+    @apply bg-emerald-200 hover:bg-emerald-200
   }
 }
