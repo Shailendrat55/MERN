@@ -55,6 +55,7 @@ export default function Home() {
                 onClick={() =>
                   setTasks(tasks.filter((_, i) => i !== index))
                 }
+                
               >
                 Delete
               </button>
